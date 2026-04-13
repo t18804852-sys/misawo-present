@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>副業スタートロードマップ | みさを</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+
+  :root {
+    --bg: #FAF6F0;
+    --bg-card: #FFFFFF;
+    --text: #4A3728;
+    --text-light: #7A6555;
+    --pink: #C4868B;
+    --pink-light: #F2E0E2;
+    --pink-bg: #FFF5F6;
+    --brown: #5C3D2E;
+    --brown-light: #8B6F5E;
+    --accent: #E8B4B8;
+    --danger: #D45D5D;
+    --danger-bg: #FFF0F0;
+    --safe: #6BA368;
+    --safe-bg: #F0F8EF;
+    --border: #E8DDD4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 520px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── ヘッダー ── */
+  .header { text-align: center; padding: 48px 16px 32px; }
+  .header-badge {
+    display: inline-block; background: var(--pink); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 4px 14px;
+    border-radius: 20px; letter-spacing: 1px; margin-bottom: 16px;
+  }
+  .header h1 { font-size: 22px; font-weight: 900; color: var(--brown); line-height: 1.5; margin-bottom: 8px; }
+  .header h1 em { font-style: normal; color: var(--pink); }
+  .header-sub { font-size: 13px; color: var(--text-light); }
+
+  /* ── 手紙 ── */
+  .letter {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px; margin: 24px 0 32px; position: relative;
+  }
+  .letter::before { content: '💌'; position: absolute; top: -14px; left: 24px; font-size: 24px; background: var(--bg); padding: 0 8px; }
+  .letter-name { font-weight: 700; color: var(--pink); font-size: 14px; margin-bottom: 12px; }
+  .letter p { font-size: 14.5px; line-height: 2; }
+
+  /* ── ロードマップ全体図 ── */
+  .roadmap-visual {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px 20px; margin: 24px 0 32px;
+  }
+  .roadmap-visual-title { font-size: 16px; font-weight: 700; color: var(--brown); text-align: center; margin-bottom: 20px; }
+  .roadmap-steps { display: flex; flex-direction: column; gap: 0; }
+  .roadmap-step-row {
+    display: flex; align-items: center; gap: 14px; padding: 10px 0;
+  }
+  .roadmap-dot {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; color: #fff; background: var(--border);
+  }
+  .roadmap-dot.active { background: var(--pink); }
+  .roadmap-dot.peak { background: var(--danger); }
+  .roadmap-line {
+    width: 36px; display: flex; justify-content: center; flex-shrink: 0;
+  }
+  .roadmap-line::after {
+    content: ''; display: block; width: 2px; height: 20px; background: var(--border);
+  }
+  .roadmap-step-text { font-size: 13.5px; font-weight: 500; line-height: 1.5; }
+  .roadmap-step-text strong { color: var(--brown); }
+  .roadmap-step-text .sub { font-size: 11.5px; color: var(--text-light); display: block; margin-top: 2px; }
+
+  /* ── セクション ── */
+  .section { margin: 40px 0; }
+  .step-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
+  }
+  .step-label.normal { color: var(--pink); background: var(--pink-bg); }
+  .step-label.peak { color: var(--danger); background: var(--danger-bg); }
+  .section h2 { font-size: 18px; font-weight: 900; color: var(--brown); margin-bottom: 16px; line-height: 1.5; }
+
+  /* ── カード ── */
+  .trick-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px; margin: 16px 0;
+  }
+
+  /* ── ポイントボックス ── */
+  .tip-box {
+    background: var(--safe-bg); border: 2px solid var(--safe);
+    border-radius: 14px; padding: 20px; margin: 16px 0; position: relative;
+  }
+  .tip-box::before { content: ''; position: absolute; top: -1px; left: 20px; right: 20px; height: 3px; background: var(--safe); border-radius: 0 0 4px 4px; }
+  .tip-label { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--safe); margin-bottom: 8px; }
+  .tip-num { background: var(--safe); color: #fff; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
+  .tip-box p { font-size: 14px; line-height: 1.9; }
+  .tip-box strong { color: var(--brown); }
+
+  /* ── 書き出しエリア ── */
+  .write-area {
+    background: #fff; border: 2px dashed var(--border); border-radius: 12px;
+    padding: 16px; margin: 16px 0;
+  }
+  .write-area-label { font-size: 12px; font-weight: 700; color: var(--text-light); margin-bottom: 8px; }
+  .write-area input[type="text"] {
+    width: 100%; border: none; border-bottom: 1px solid var(--border);
+    font-family: inherit; font-size: 15px; padding: 8px 0; margin-bottom: 8px;
+    background: transparent; color: var(--text);
+  }
+  .write-area input:focus { outline: none; border-bottom-color: var(--pink); }
+
+  /* ── テンプレート ── */
+  .template-box {
+    background: #FAFAFA; border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px; margin: 16px 0; font-size: 13.5px; line-height: 1.8;
+  }
+  .template-box .placeholder { color: var(--pink); font-weight: 700; }
+
+  /* ── タイムライン ── */
+  .timeline { margin: 20px 0; }
+  .timeline-item {
+    display: flex; gap: 14px; padding: 12px 0;
+    border-left: 3px solid var(--border); margin-left: 16px; padding-left: 20px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -8px; top: 16px;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--border);
+  }
+  .timeline-item.highlight { border-left-color: var(--pink); }
+  .timeline-item.highlight::before { background: var(--pink); }
+  .timeline-item.goal { border-left-color: var(--safe); }
+  .timeline-item.goal::before { background: var(--safe); }
+  .timeline-period { font-size: 12px; font-weight: 700; color: var(--text-light); min-width: 60px; flex-shrink: 0; padding-top: 2px; }
+  .timeline-content { font-size: 14px; line-height: 1.8; }
+
+  /* ── 動画カード ── */
+  .video-card {
+    display: block; text-decoration: none; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    margin: 16px 0; transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .video-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .video-card-thumb { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+  .video-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .video-card-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 56px; height: 56px; background: rgba(0,0,0,0.65); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-card-play::after {
+    content: ''; display: block; width: 0; height: 0;
+    border-style: solid; border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #fff; margin-left: 3px;
+  }
+  .video-card-info { padding: 14px 16px; }
+  .video-card-label { font-size: 11px; color: var(--pink); font-weight: 700; margin-bottom: 4px; }
+  .video-card-title { font-size: 14px; font-weight: 700; color: var(--brown); line-height: 1.5; }
+
+  /* ── チェック ── */
+  .check-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; cursor: pointer; user-select: none; }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-box {
+    flex-shrink: 0; width: 22px; height: 22px; border: 2px solid var(--border);
+    border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; margin-top: 1px;
+  }
+  .check-item input:checked + .check-box { background: var(--pink); border-color: var(--pink); }
+  .check-item input:checked + .check-box::after { content: '✓'; color: #fff; font-size: 13px; font-weight: 700; }
+  .check-item input:checked ~ .check-text { text-decoration: line-through; color: var(--text-light); }
+  .check-text { font-size: 13.5px; line-height: 1.7; transition: all 0.2s; }
+
+  @media print {
+    body { font-size: 12px; }
+    .container { max-width: 100%; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <span class="header-badge">LINE限定プレゼント</span>
+    <h1><em>副業スタート</em><br>ロードマップ</h1>
+    <p class="header-sub">みさをが実際にやった道を、そのまま</p>
+  </div>
+
+  <!-- みさをの手紙 -->
+  <div class="letter">
+    <p class="letter-name">みさをより</p>
+    <p>
+      このロードマップを開いてくれてありがとうございます！<br><br>
+      在宅ワーク始めたいけど、<br>
+      「結局なにからやったらいいかわからん…」ってなりますよね。<br>
+      めちゃくちゃわかります。私もそうでした！<br><br>
+      なのでこの資料では、<br>
+      <strong>私が実際にやってきた順番をそのまま1本の道にまとめました！</strong><br><br>
+      全部やらなくていいので、<br>
+      まずはSTEP 0だけ。3分で終わります！<br>
+      ゆっくり自分のペースで進めてくださいね。
+    </p>
+  </div>
+
+  <!-- ロードマップ全体図 -->
+  <div class="roadmap-visual">
+    <p class="roadmap-visual-title">全体の流れ</p>
+    <div class="roadmap-steps">
+      <div class="roadmap-step-row">
+        <span class="roadmap-dot active">0</span>
+        <div class="roadmap-step-text"><strong>自分チェック</strong><span class="sub">紙とペンで3分</span></div>
+      </div>
+      <div class="roadmap-step-row"><div class="roadmap-line"></div></div>
+      <div class="roadmap-step-row">
+        <span class="roadmap-dot active">1</span>
+        <div class="roadmap-step-text"><strong>クラウドワークスに登録</strong><span class="sub">10分で完了</span></div>
+      </div>
+      <div class="roadmap-step-row"><div class="roadmap-line"></div></div>
+      <div class="roadmap-step-row">
+        <span class="roadmap-dot active">2</span>
+        <div class="roadmap-step-text"><strong>プロフィールを作る</strong><span class="sub">テンプレあり</span></div>
+      </div>
+      <div class="roadmap-step-row"><div class="roadmap-line"></div></div>
+      <div class="roadmap-step-row">
+        <span class="roadmap-dot peak">3</span>
+        <div class="roadmap-step-text"><strong>最初の1件を取る</strong><span class="sub">★ ここが一番の山場</span></div>
+      </div>
+      <div class="roadmap-step-row"><div class="roadmap-line"></div></div>
+      <div class="roadmap-step-row">
+        <span class="roadmap-dot active">4</span>
+        <div class="roadmap-step-text"><strong>実績5件まで積む</strong><span class="sub">修行期間</span></div>
+      </div>
+      <div class="roadmap-step-row"><div class="roadmap-line"></div></div>
+      <div class="roadmap-step-row">
+        <span class="roadmap-dot" style="background:var(--safe);">5</span>
+        <div class="roadmap-step-text"><strong>月3万の壁を越える</strong><span class="sub">ここ超えたら加速します！</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━ STEP 0 ━━━ -->
+  <div class="section">
+    <span class="step-label normal">STEP 0</span>
+    <h2>自分チェック — 紙とペンの時間</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        ここだけ紙とペン出してほしいんです！<br>
+        スマホのメモでもOKですよ。3分だけお付き合いください！<br><br>
+        これね、私も在宅ワーク始める前にやったことなんですけど、<br>
+        <strong>書くと書かないとでは本気度がほんまに変わるんですよね！</strong>
+      </p>
+    </div>
+
+    <div class="write-area">
+      <p class="write-area-label">書き出してみてください</p>
+      <input type="text" placeholder="① 1日で副業に使える時間 →　　時間">
+      <input type="text" placeholder="② 最初の目標月収 →　　万円">
+      <input type="text" placeholder="③ いつまでに達成したい？ →　　ヶ月後">
+      <input type="text" placeholder="④ 稼いだお金で何がしたい？">
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">1</span> ポイント</span>
+      <p>
+        ④が一番大事です！<br>
+        子供の習い事を値段気にせず選ばせたい、<br>
+        旦那の顔色うかがわず好きなもの買いたい、<br>
+        平日の昼にふらっとカフェでパンケーキ食べたい、<br>
+        なんでもいいんですよ！<br><br>
+        <strong>しんどい時にこれ見返すだけで全然違いますから。</strong><br>
+        書いたらスクショしといてくださいね！
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ STEP 1 ━━━ -->
+  <div class="section">
+    <span class="step-label normal">STEP 1</span>
+    <h2>クラウドワークスに登録する</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        まずはここだけ！他のサイトは今は見なくて大丈夫です！<br><br>
+        クラウドワークスは在宅ワークの入口として一番おすすめで、<br>
+        未経験でも応募できるお仕事がめちゃくちゃ多いんですよね！<br>
+        私も一番最初のお仕事はここで取りました！<br><br>
+        登録自体は10分もかからないので、サクッとやっちゃいましょう！
+      </p>
+    </div>
+
+    <a href="https://youtu.be/Drp2VqyU4Zg" target="_blank" class="video-card">
+      <div class="video-card-thumb">
+        <img src="https://img.youtube.com/vi/Drp2VqyU4Zg/maxresdefault.jpg" alt="クラウドワークス完全ガイド">
+        <div class="video-card-play"></div>
+      </div>
+      <div class="video-card-info">
+        <p class="video-card-label">▶ 画面で全部見せてます</p>
+        <p class="video-card-title">【初心者向け完全ガイド】クラウドワークス登録〜初案件獲得まで</p>
+      </div>
+    </a>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">2</span> ポイント</span>
+      <p>
+        登録時に「主な利用方法」っていう項目があるんですけど、<br>
+        <strong>必ず「仕事を受注する」にチェック</strong>してくださいね！<br>
+        間違えて「発注する」にしちゃうとお仕事を出す側になっちゃうので！笑
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ STEP 2 ━━━ -->
+  <div class="section">
+    <span class="step-label normal">STEP 2</span>
+    <h2>プロフィールを作る</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        ここ、意外とみんなスルーしがちなんですけど<br>
+        <strong>めちゃくちゃ大事なパートです！</strong><br><br>
+        クライアントさんって、スキルうんぬんの前に<br>
+        「この人ちゃんと連絡取れるかな？」ってことを<br>
+        めちゃくちゃ気にしてるんですよ！<br><br>
+        だからプロフィールで丁寧さを見せるだけで、<br>
+        「この人となら安心してやり取りできそう」って思ってもらえます！
+      </p>
+    </div>
+
+    <div class="template-box">
+      <p style="font-weight:700; color:var(--brown); margin-bottom:12px;">プロフィールテンプレ（このまま埋めてOK）</p>
+      はじめまして！<span class="placeholder">【名前】</span>と申します。<br><br>
+      現在<span class="placeholder">【主婦/会社員/パート等】</span>をしながら、<br>
+      在宅ワークに挑戦しています！<br><br>
+      <span class="placeholder">【できること・興味があること】</span>に興味があり、<br>
+      丁寧で迅速な対応を心がけています！<br><br>
+      ■ 作業可能時間<br>
+      平日 <span class="placeholder">【○時〜○時】</span><br>
+      土日 <span class="placeholder">【対応可能 or 応相談】</span><br><br>
+      ■ 連絡について<br>
+      メッセージは<span class="placeholder">【24時間以内/当日中】</span>に返信いたします！<br><br>
+      お気軽にご相談ください。<br>
+      よろしくお願いいたします！
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">3</span> ポイント</span>
+      <p>
+        <strong>ダラダラ書かないのが一番大事です！</strong><br>
+        長すぎると読んでもらえないんですよね。<br>
+        ①何ができるか ②いつ稼働できるか ③連絡のスピード<br>
+        この3つがあれば十分です！
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ STEP 3 ★山場★ ━━━ -->
+  <div class="section">
+    <span class="step-label peak">★ STEP 3 — ここが山場</span>
+    <h2>最初の1件を取る</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        正直ここが一番しんどいです。<br>
+        <strong>でもね、この1件目さえ超えたら世界が変わります！</strong><br><br>
+        私も最初の案件取るまではほんまにドキドキでした。<br>
+        「採用されるんかな…」「ちゃんとできるかな…」って。<br><br>
+        でも応募してみたら、意外とちゃんとお返事もらえるんですよ！<br>
+        勇気を出して一歩踏み出してみてほしいです！
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">4</span> ポイント</span>
+      <p>
+        最初のうちは<strong>「初心者歓迎」で検索するのは全然アリです！</strong><br>
+        実績を作る段階ではむしろおすすめしてます！<br><br>
+        ただ、慣れてきたら検索ワードを変えていきましょう！<br>
+        おすすめは<strong>「弊社」とか「事業拡大」で検索すること！</strong><br>
+        ちゃんとした会社が出してる案件にしか使われない言葉なので、<br>
+        単価も上がるし、継続してもらえる可能性も高いんですよね！
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">5</span> ポイント</span>
+      <p>
+        <strong>応募文は「募集文を3回読んでから書く」が鉄則です！</strong><br><br>
+        クライアントさんが何を求めてるか、ちゃんと読み取って<br>
+        それに対して答えるだけで、もう他の応募者と差がつきます！<br><br>
+        意外とこれができてない人がめちゃくちゃ多いんですよね。<br>
+        逆に言えば、<strong>ちゃんとやるだけで目立てます！</strong>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">6</span> ポイント</span>
+      <p>
+        <strong>最初は500円の案件でも全然いいです！</strong><br>
+        「え、500円…？」って思いますよね。わかります！笑<br><br>
+        でもね、最初の段階で大事なのはお金じゃなくて<strong>「実績」</strong>なんですよ！<br><br>
+        これって飲食店とかでも同じだと思うんですけど、<br>
+        口コミの評価が高いお店って行きたくなりませんか？<br>
+        あれと全く一緒で、★5の評価がつくと<br>
+        クライアントさんから「この人にお願いしたい！」って思ってもらえるんですよね！<br><br>
+        <strong>実績＝信頼の積み重ね</strong>だと思ってもらえたら！
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ STEP 4 ━━━ -->
+  <div class="section">
+    <span class="step-label normal">STEP 4</span>
+    <h2>実績5件まで積む — 修行期間</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        1件取れたら、あとは同じことの繰り返しです！<br>
+        ここは修行期間だと思って、<br>
+        <strong>値段より★5の評価を取りにいってください！</strong><br><br>
+        5件の★5が揃った瞬間、<br>
+        クライアントさんの反応がほんまに変わりますよ！<br>
+        「あ、この人ちゃんとしてるな」って思ってもらえるんです！
+      </p>
+    </div>
+
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">7</span> ポイント</span>
+      <p>
+        <strong>納品後に「継続でお仕事させていただけませんか？」の一言を添えてみてください！</strong><br>
+        クライアントさんも新しい方を探すのは大変なので、<br>
+        ちゃんとお仕事してくれた方にはそのまま継続でお願いしたいと思ってるんですよね！<br>
+        この一言があるだけで全然違いますよ！
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ STEP 5 ━━━ -->
+  <div class="section">
+    <span class="step-label normal">STEP 5</span>
+    <h2>月3万の壁を越える</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        正直に言うと、<strong>ここが逆にきつい部分なんですよね！</strong><br><br>
+        1件目は勢いでいけるんですけど、<br>
+        コンスタントに案件を取り続けるのが大変なんです。<br><br>
+        でもね、ここさえ超えたら加速するんですよ！<br>
+        <strong>月3万の壁を越えたら、そこからはぐっと楽になる</strong>って<br>
+        私は実感してます！<br><br>
+        だからこそ、この壁だけは乗り越えてほしい！
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">8</span> ポイント</span>
+      <p>
+        <strong>1つのスキルで横に広げるのがコツです！</strong><br>
+        例えばインスタの運用ができるようになったら、<br>
+        同じ考え方でTikTokもできるし、TikTokができたらYouTubeにもいける！<br><br>
+        本質的なところは一緒なので、<br>
+        1つのスキルが他のプラットフォームにも活かせるんですよね！
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ みさをの実体験 ━━━ -->
+  <div class="section">
+    <h2 style="text-align:center;">みさをの実体験タイムライン</h2>
+    <p style="text-align:center; font-size:13px; color:var(--text-light); margin-bottom:20px;">
+      パート月12万 → フリーランス月30〜40万になるまで
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-period">パート時代</span>
+        <div class="timeline-content">
+          時給1,000円 × 1日6時間。月12〜15万。<br>
+          子供の将来を考えた時に「このままじゃあかん」って思った
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-period">1〜2ヶ月目</span>
+        <div class="timeline-content">
+          データ入力・文字起こしをがむしゃらにやる。<br>
+          毎日3〜4時間やって<strong>月1万円。</strong>心折れかけた
+        </div>
+      </div>
+      <div class="timeline-item highlight">
+        <span class="timeline-period">転機</span>
+        <div class="timeline-content">
+          先輩に「そのやり方じゃ月30万は絶対いかへんよ」って言われて、<br>
+          インスタ運用代行に出会う
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-period">3ヶ月目</span>
+        <div class="timeline-content">
+          <strong>月3万。</strong>睡眠4時間の日もあった。<br>
+          朝6時起き→パート→14時帰宅→17時まで副業→子供迎え→21時〜深夜1時PC
+        </div>
+      </div>
+      <div class="timeline-item goal">
+        <span class="timeline-period">現在</span>
+        <div class="timeline-content">
+          フリーランス3年目。<strong>月30〜40万！</strong><br>
+          インスタ運用代行7割 / YouTube運用代行2割 / 講師業1割
+        </div>
+      </div>
+    </div>
+
+    <div class="trick-card" style="text-align:center;">
+      <p style="font-size:14px; line-height:2;">
+        最初の3ヶ月が一番きつかったです。<br>
+        でもあの3ヶ月があったから今がある！<br><br>
+        <strong>月30万までは、ちゃんとやれば誰でも届く数字やと<br>私は本気で思ってます！</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━ 締め ━━━ -->
+  <div class="section">
+    <div class="letter" style="border-color: var(--pink); margin-top:24px;">
+      <p class="letter-name">みさをより</p>
+      <p>
+        ここまで読んでくれて、ほんまにありがとうございます！<br><br>
+        全部いっぺんにやらなくて大丈夫です！<br>
+        まずはSTEP 0の書き出しだけ。3分で終わりますから！<br><br>
+        自分のペースで、一歩ずつ進んでいってくださいね。<br>
+        どんな小さな一歩でも、それはもう「始めてる」ってことですから！<br><br>
+        この資料が少しでも役に立ってくれてたら、めちゃくちゃ嬉しいです！<br><br>
+        在宅ワークって、ちゃんとやれば<br>
+        ほんまにいい働き方やと思ってるので！<br><br>
+        一緒に頑張りましょうね！<br><br>
+        おおきに。
+      </p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
