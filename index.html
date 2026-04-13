@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在宅副業の落とし穴 & 見極め裏技 | みさを</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+
+  :root {
+    --bg: #FAF6F0;
+    --bg-card: #FFFFFF;
+    --text: #4A3728;
+    --text-light: #7A6555;
+    --pink: #C4868B;
+    --pink-light: #F2E0E2;
+    --pink-bg: #FFF5F6;
+    --brown: #5C3D2E;
+    --brown-light: #8B6F5E;
+    --accent: #E8B4B8;
+    --danger: #D45D5D;
+    --danger-bg: #FFF0F0;
+    --safe: #6BA368;
+    --safe-bg: #F0F8EF;
+    --border: #E8DDD4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic Pro', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── ヘッダー ── */
+  .header {
+    text-align: center;
+    padding: 48px 16px 32px;
+    position: relative;
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--pink);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--brown);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .header h1 em {
+    font-style: normal;
+    color: var(--pink);
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* ── みさをの手紙 ── */
+  .letter {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 24px 0 32px;
+    position: relative;
+  }
+  .letter::before {
+    content: '💌';
+    position: absolute;
+    top: -14px;
+    left: 24px;
+    font-size: 24px;
+    background: var(--bg);
+    padding: 0 8px;
+  }
+  .letter-name {
+    font-weight: 700;
+    color: var(--pink);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .letter p {
+    font-size: 14.5px;
+    line-height: 2;
+  }
+
+  /* ── 全体MAP ── */
+  .map-section {
+    margin: 32px 0;
+  }
+  .map-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brown);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .map-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .map-grid .map-item-full {
+    grid-column: 1 / -1;
+  }
+  .map-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    transition: transform 0.15s;
+  }
+  .map-item:hover { transform: translateY(-2px); }
+  .map-item .num {
+    display: block;
+    font-size: 11px;
+    color: var(--pink);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  /* ── セクション ── */
+  .section {
+    margin: 40px 0;
+  }
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--danger);
+    background: var(--danger-bg);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--brown);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .section h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brown);
+    margin: 20px 0 10px;
+  }
+
+  /* ── 手口カード ── */
+  .trick-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .trick-flow {
+    background: #FAFAFA;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0;
+  }
+  .trick-flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .trick-flow-step:last-child { margin-bottom: 0; }
+  .trick-flow-num {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    background: var(--danger);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .trick-quote {
+    background: var(--danger-bg);
+    border-left: 3px solid var(--danger);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 13px;
+    color: var(--danger);
+    font-style: italic;
+  }
+
+  /* ── 裏技ボックス ── */
+  .tip-box {
+    background: var(--safe-bg);
+    border: 2px solid var(--safe);
+    border-radius: 14px;
+    padding: 20px;
+    margin: 16px 0;
+    position: relative;
+  }
+  .tip-box::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: var(--safe);
+    border-radius: 0 0 4px 4px;
+  }
+  .tip-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--safe);
+    margin-bottom: 8px;
+  }
+  .tip-num {
+    background: var(--safe);
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+  .tip-box p {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+  .tip-box strong {
+    color: var(--brown);
+  }
+
+  /* ── 相場表 ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  thead th {
+    background: var(--brown);
+    color: #fff;
+    padding: 10px 14px;
+    font-weight: 700;
+    text-align: left;
+    font-size: 12px;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  .cell-real { color: var(--safe); font-weight: 700; }
+  .cell-scam { color: var(--danger); font-weight: 700; }
+
+  /* ── チェックリスト ── */
+  .checklist-section {
+    background: var(--bg-card);
+    border: 2px solid var(--pink);
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin: 32px 0;
+  }
+  .checklist-section h2 {
+    color: var(--pink);
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .checklist-desc {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+  .checklist-group {
+    margin: 20px 0;
+  }
+  .checklist-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+  .checklist-group-where {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-box {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 1px;
+  }
+  .check-item input:checked + .check-box {
+    background: var(--pink);
+    border-color: var(--pink);
+  }
+  .check-item input:checked + .check-box::after {
+    content: '✓';
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .check-item input:checked ~ .check-text {
+    text-decoration: line-through;
+    color: var(--text-light);
+  }
+  .check-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    transition: all 0.2s;
+  }
+
+  /* 進捗バー */
+  .progress-wrap {
+    margin: 20px 0 8px;
+  }
+  .progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--accent));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-text {
+    text-align: right;
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* ── 119番セクション ── */
+  .emergency {
+    background: var(--danger-bg);
+    border: 1px solid #E8BFBF;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 32px 0;
+  }
+  .emergency h3 {
+    color: var(--danger);
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .emergency-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+  .emergency-num {
+    flex-shrink: 0;
+    font-weight: 900;
+    color: var(--danger);
+  }
+
+  /* ── フッター ── */
+  .footer {
+    text-align: center;
+    margin-top: 48px;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+  .footer-name {
+    font-weight: 700;
+    color: var(--pink);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .footer p {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* ── 印刷 ── */
+  .print-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: var(--pink);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 12px 0;
+    transition: opacity 0.2s;
+  }
+  .print-btn:hover { opacity: 0.85; }
+
+  /* ── 動画カード ── */
+  .video-card {
+    display: block;
+    text-decoration: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 16px 0;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .video-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .video-card-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .video-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .video-card-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    background: rgba(0,0,0,0.65);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-card-play::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 3px;
+  }
+  .video-card-info {
+    padding: 14px 16px;
+  }
+  .video-card-label {
+    font-size: 11px;
+    color: var(--pink);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .video-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.5;
+  }
+
+  @media print {
+    body { font-size: 12px; }
+    .container { max-width: 100%; padding: 0; }
+    .print-btn { display: none; }
+    .tip-box, .trick-card, .checklist-section, .emergency { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <span class="header-badge">LINE限定プレゼント</span>
+    <h1>在宅副業の<em>落とし穴</em><br>&<br><em>知ってるだけで避けられる</em>こと</h1>
+    <p class="header-sub">チェックリスト付き</p>
+  </div>
+
+  <!-- みさをの手紙 -->
+  <div class="letter">
+    <p class="letter-name">みさをより</p>
+    <p>
+      この資料を開いてくれてありがとうございます。<br><br>
+      在宅ワークってほんまにいい働き方やと思ってるんですよね。<br>
+      でも、知らないまま始めると<br>
+      遠回りしたり、変なものに引っかかったりすることがあるんです。<br><br>
+      私自身、最初の2ヶ月は<br>
+      やり方を間違えて月1万しか稼げませんでした。<br><br>
+      だからこの資料では、<br>
+      <strong>「先に知っておけば避けられること」</strong>を全部まとめました。<br><br>
+      知ってるか知らないか、それだけの話なので。<br>
+      読んでおくだけで全然違うと思います。
+    </p>
+  </div>
+
+  <!-- 全体MAP -->
+  <div class="map-section">
+    <p class="map-title">⚡ 落とし穴MAP</p>
+    <div class="map-grid">
+      <div class="map-item">
+        <span class="num">①</span>
+        案件探しの罠<br>（詐欺パターン）
+      </div>
+      <div class="map-item">
+        <span class="num">②</span>
+        情報の罠<br>（相場を知る）
+      </div>
+      <div class="map-item">
+        <span class="num">③</span>
+        パソコン<br>どうする問題
+      </div>
+      <div class="map-item">
+        <span class="num">④</span>
+        人間関係の罠
+      </div>
+      <div class="map-item map-item-full">
+        <span class="num">⑤</span>
+        仕事選び — 実はここが一番大事
+      </div>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ 落とし穴① 案件探しの罠 ━━━━━━━━━━━━━━━ -->
+  <div class="section">
+    <span class="section-label">⚠️ 落とし穴 ①</span>
+    <h2>案件探しの罠 — 詐欺パターン4つ</h2>
+
+    <p style="font-size:14px; line-height:2; margin-bottom:20px;">
+      クラウドソーシングでもSNSでも、初心者さんを狙った詐欺って普通に混ざってるんですよ。<br>
+      でもパターンは決まってるので、<strong>知ってたら引っかからないんですよね。</strong>ほんまに知識だけの話です。
+    </p>
+
+    <!-- 詐欺A: LINE誘導 -->
+    <div class="trick-card">
+      <h3>パターンA: LINE誘導 → マルチ型</h3>
+      <div class="trick-flow">
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">1</span>
+          <span>低単価案件に応募 → 契約後「詳細はLINEで」とLINE交換を求められる</span>
+        </div>
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">2</span>
+          <span>LINE上で「定員に達したので別の仕事を紹介します」</span>
+        </div>
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">3</span>
+          <span>マルチ商法・ねずみ講への勧誘に発展</span>
+        </div>
+      </div>
+      <div class="trick-quote">「CWだとやり取りしにくいので、LINEで連絡させてください」</div>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">4</span> ポイント</span>
+      <p>
+        私は契約前にLINE聞かれたら<strong>「クラウドワークス上でお願いします」</strong>ってお伝えしてます。<br>
+        これ言って相手が引いたら、もうその時点で怪しいと思ってもらって大丈夫です。まともなクライアントさんはサイト上でやり取り完結してくれるので。
+      </p>
+    </div>
+
+    <!-- 詐欺B: テスト搾取 -->
+    <div class="trick-card">
+      <h3>パターンB: テスト記事の持ち逃げ型</h3>
+      <div class="trick-flow">
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">1</span>
+          <span>「ライター募集」に応募 → テストライティング3000文字を依頼される</span>
+        </div>
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">2</span>
+          <span>「不合格」→ 報酬なし → 記事だけ持ち逃げ → 無断公開</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">5</span> ポイント</span>
+      <p>
+        テスト記事を求められた時は<strong>「仮払い後でお願いします」</strong>ってお伝えしてます。<br>
+        仮払い＝クライアントさんが先にお金を預ける仕組みなので、これがあれば報酬が保証されるんですよね。<br>
+        まともなクライアントさんなら快諾してくれますし、断られたらその時点で離れた方がいいと思います。
+      </p>
+    </div>
+
+    <!-- 詐欺C: 個人情報 -->
+    <div class="trick-card">
+      <h3>パターンC: 個人情報を抜かれる型</h3>
+      <div class="trick-flow">
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">1</span>
+          <span>契約前に「履歴書を」→ 住所・本名・電話番号・身分証を要求</span>
+        </div>
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">2</span>
+          <span>個人情報を悪用される（なりすまし・不正契約など）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">6</span> ポイント</span>
+      <p>
+        <strong>契約前に住所・本名・LINE IDを聞かれたら、全部お断りして大丈夫です。</strong><br>
+        クラウドワークスの規約にもはっきり書いてあるので、「規約を確認したところ、契約前の個人情報提供は禁止されているようです」ってお伝えするだけで大丈夫ですよ。
+      </p>
+    </div>
+
+    <!-- 詐欺D: SNS DM -->
+    <div class="trick-card">
+      <h3>パターンD: SNSのDM営業型</h3>
+      <div class="trick-flow">
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">1</span>
+          <span>InstagramやXのDMで「こんなお仕事しませんか？」と来る</span>
+        </div>
+        <div class="trick-flow-step">
+          <span class="trick-flow-num">2</span>
+          <span>高額スクールの勧誘 or 情報商材の販売に発展</span>
+        </div>
+      </div>
+      <div class="trick-quote">「月100万稼いでる方法を教えます」「限定で募集してます」</div>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">7</span> ポイント</span>
+      <p>
+        <strong>ほんまに稼いでる人って、DMで営業なんかしてこないんですよ。</strong><br>
+        忙しいからそんな暇がないんですよね。<br>
+        なのでDMが来た時点でスルーしてもらって大丈夫です。覚えておいてくださいね。
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ チェックリスト（①の続き） ━━━━━━━━━━━━━━━ -->
+  <div class="checklist-section">
+    <h2>🛡 クラウドワークスで案件を探す時のチェックリスト</h2>
+    <p class="checklist-desc">案件を見る時にこのリストを横に置いて確認してみてください</p>
+
+    <a href="https://youtu.be/Drp2VqyU4Zg" target="_blank" class="video-card">
+      <div class="video-card-thumb">
+        <img src="https://img.youtube.com/vi/Drp2VqyU4Zg/maxresdefault.jpg" alt="クラウドワークス完全ガイド">
+        <div class="video-card-play"></div>
+      </div>
+      <div class="video-card-info">
+        <p class="video-card-label">▶ 関連動画</p>
+        <p class="video-card-title">【画面で全部見せます】クラウドワークス登録〜初案件獲得まで</p>
+      </div>
+    </a>
+
+    <div class="progress-wrap">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-text" id="progressText">0 / 12</p>
+    </div>
+
+    <div class="checklist-group">
+      <p class="checklist-group-title">
+        ■ 案件を開く前に
+        <span class="checklist-group-where">（クライアントのプロフィールページで確認）</span>
+      </p>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">「本人確認済み」バッジがあるか（プロフィール左上）</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">「発注ルールチェック済み」バッジがあるか</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">評価が4.0以上か（星マークで確認）</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">プロジェクト完了率が50%以上か（実績タブ）</span></label>
+    </div>
+
+    <div class="checklist-group">
+      <p class="checklist-group-title">
+        ■ 案件を読む時に
+        <span class="checklist-group-where">（募集ページで確認）</span>
+      </p>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">仕事内容が具体的に書いてあるか（「何をするか」不明はNG）</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">報酬が相場の範囲内か（下の相場表と照合）</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">「誰でも」「簡単」「高収入」が3つ揃っていないか</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">「認定クライアント」マークがあるか（絞り込み検索でONにできます）</span></label>
+    </div>
+
+    <div class="checklist-group">
+      <p class="checklist-group-title">
+        ■ やり取りが始まってから
+        <span class="checklist-group-where">（メッセージ画面で確認）</span>
+      </p>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">LINE・Zoom・外部ツールに誘導されていないか</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">契約前に個人情報（住所・本名・身分証）を聞かれていないか</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">仮払い前に作業開始を求められていないか</span></label>
+      <label class="check-item"><input type="checkbox" onchange="updateProgress()"><span class="check-box"></span><span class="check-text">初期費用・教材費・商品代など、お金を請求されていないか</span></label>
+    </div>
+
+    <div class="tip-box" style="border-color: var(--pink); background: var(--pink-bg);">
+      <span class="tip-label" style="color: var(--pink);"><span class="tip-num" style="background: var(--pink);">1</span> ポイント</span>
+      <p>
+        迷ったら<strong>「認定クライアント」で絞り込む</strong>のがおすすめです。<br>
+        クラウドワークスの検索画面 →「絞り込み」→「認定クライアント」をON。<br>
+        これだけで完了率80%以上・支払い遅延なし・評価4.8以上のクライアントさんだけに絞れるんですよね。
+      </p>
+    </div>
+
+    <div class="tip-box" style="border-color: var(--pink); background: var(--pink-bg);">
+      <span class="tip-label" style="color: var(--pink);"><span class="tip-num" style="background: var(--pink);">2</span> ポイント</span>
+      <p>
+        <strong>クライアントさんの発注履歴を見る</strong>のも大事です。<br>
+        案件をたくさん出してる方は仕事量が多いので、継続で依頼してくれる可能性が高いんですよね。<br>
+        逆に発注が1〜2件しかない方は単発で終わることが多いので、そこも見ておいてくださいね。
+      </p>
+    </div>
+
+    <div class="tip-box" style="border-color: var(--pink); background: var(--pink-bg);">
+      <span class="tip-label" style="color: var(--pink);"><span class="tip-num" style="background: var(--pink);">3</span> ポイント</span>
+      <p>
+        <strong>受注実績が少ない状態で来るスカウトは、ほとんどが詐欺です。</strong><br>
+        登録直後にスカウトが来たら嬉しいですよね、わかります。<br>
+        でもそれは初心者さんを狙い撃ちしてるだけなので、飛びつかないでほしいんですよね。
+      </p>
+    </div>
+
+    <div class="tip-box" style="border-color: var(--pink); background: var(--pink-bg);">
+      <span class="tip-label" style="color: var(--pink);"><span class="tip-num" style="background: var(--pink);">4</span> ポイント</span>
+      <p>
+        <strong>募集文は3回読んでから応募してください。</strong><br>
+        発注者さんの中には、文中にわざと「★マークを最後に入れてください」みたいなテストを仕込んでる方がいらっしゃるんですよ。<br>
+        これに気づけるかどうかで採用率が全然変わりますし、詐欺案件は逆にこういう丁寧さがないんですよね。<br>
+        <strong>丁寧な募集文＝まともなクライアントさんのサイン</strong>だと思ってます。
+      </p>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">
+      📄 このチェックリストを印刷する
+    </button>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ 119番 ━━━━━━━━━━━━━━━ -->
+  <div class="emergency">
+    <h3>🚨 もしやられてしまった時の対処法</h3>
+    <div class="emergency-item">
+      <span class="emergency-num">①</span>
+      <span>即座にやり取りを停止する</span>
+    </div>
+    <div class="emergency-item">
+      <span class="emergency-num">②</span>
+      <span>CW事務局に通報する<br>（案件ページ右下「この仕事を通報する」 or メッセージ画面右下「違反報告する」）</span>
+    </div>
+    <div class="emergency-item">
+      <span class="emergency-num">③</span>
+      <span>カード決済した場合 → カード会社に即電話してチャージバック申請</span>
+    </div>
+    <div class="emergency-item">
+      <span class="emergency-num">④</span>
+      <span>消費生活センターに電話（☎ <strong>188</strong>）</span>
+    </div>
+    <div class="emergency-item">
+      <span class="emergency-num">⑤</span>
+      <span>やり取りのスクショ・契約書・決済履歴は全部保存しておく</span>
+    </div>
+    <p style="margin-top:16px; font-size:13px; color:var(--text-light);">
+      焦らなくて大丈夫です。対処法はちゃんとあるので。<br>
+      一人で抱え込まずに、まずは上の順番で進めてみてくださいね。
+    </p>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ 落とし穴② 情報の罠 ━━━━━━━━━━━━━━━ -->
+  <div class="section">
+    <span class="section-label">⚠️ 落とし穴 ②</span>
+    <h2>情報の罠 — 相場を知らないと全部信じてしまう</h2>
+
+    <p style="margin-bottom:16px; font-size:14px; line-height:2;">
+      「スマホだけで月50万！」「1日10分で月10万！」<br>
+      こういうの見たことないですか？<br><br>
+      <strong>この表だけ頭に入れておいてください。</strong><br>
+      相場を知ってたら「おかしいな」って一瞬でわかるようになるので。
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>仕事内容</th>
+            <th>実際の相場</th>
+            <th>詐欺の提示額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>データ入力</td>
+            <td class="cell-real">1件 数円〜数十円</td>
+            <td class="cell-scam">「月10万〜30万」</td>
+          </tr>
+          <tr>
+            <td>アンケート</td>
+            <td class="cell-real">1件 10〜100円</td>
+            <td class="cell-scam">「月10万〜30万」</td>
+          </tr>
+          <tr>
+            <td>ライティング</td>
+            <td class="cell-real">文字単価 0.5〜2円</td>
+            <td class="cell-scam">「1記事1〜5万（500文字）」</td>
+          </tr>
+          <tr>
+            <td>SNS運用</td>
+            <td class="cell-real">月1〜5万（初心者）</td>
+            <td class="cell-scam">「月20〜50万」</td>
+          </tr>
+          <tr>
+            <td>簡単作業全般</td>
+            <td class="cell-real">時給換算 500〜1000円</td>
+            <td class="cell-scam">「1日10分で月10万」</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">8</span> ポイント</span>
+      <p>
+        <strong>「誰でも」「簡単」「高収入」この3つが揃ってる案件は、ほぼ詐欺だと思ってもらっていいです。</strong><br>
+        冷静に考えたらわかると思うんですけど、そんな仕事があったら私も全力でやってます（笑）<br>
+        この3ワードが揃ってたら、もう見なくて大丈夫ですよ。
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ 落とし穴③ パソコンどうする問題 ━━━━━━━━━━━━━━━ -->
+  <div class="section">
+    <span class="section-label">⚠️ 落とし穴 ③</span>
+    <h2>パソコンどうする問題 —<br>最初から高いの買わんでいい</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        「在宅ワーク始めるならMacBook Pro買わなきゃ…」<br>
+        って思ってる方、ちょっと待ってくださいね。<br><br>
+        <strong>私、最初は人からもらったパソコンで始めてるんですよ。</strong><br><br>
+        正直それで全然いけました。<br>
+        最終的にはいいものを買った方がいいなとは思うんですけど、<br>
+        最初の段階でそこにお金かけなくて大丈夫です。
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">9</span> ポイント</span>
+      <p>
+        <strong>最初は中古でも、人からもらったものでも全然いけます。</strong><br>
+        Canvaが触れる、Google Chromeが動く、Zoomが使える。この3つができれば十分なんですよね。<br>
+        稼げるようになってから良いものに買い替えたらいいと思います。<br><br>
+        最初にパソコンにお金かけて「もう後がない…」ってプレッシャーになる方がしんどいので。
+      </p>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ 落とし穴④ 人間関係の罠 ━━━━━━━━━━━━━━━ -->
+  <div class="section">
+    <span class="section-label">⚠️ 落とし穴 ④</span>
+    <h2>人間関係の罠 —<br>ここでやらかすと業界で詰む</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        ちょっと痛い現実の話をさせてください。<br><br>
+        案件を抱えきれなくなった時に、いきなり連絡なしでやめてしまう。<br>
+        <strong>これだけは絶対にやらないでほしいんです。</strong><br><br>
+        飛びたくなる気持ちはめちゃくちゃわかるんですよ。<br>
+        ほんまにきつくて、どうしたらいいかわからない時もあると思います。<br><br>
+        でもね、在宅ワークの世界って思ったより狭いんですよね。<br>
+        1回やらかすと「あの人ちょっと…」って話が回ってしまうんです。<br><br>
+        せっかくここまで頑張ってくれてるのに、<br>
+        それでもったいないことになってほしくないから伝えてます。<br>
+        <strong>ちゃんと伝えれば、基本は許してもらえますから。</strong>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-label"><span class="tip-num">10</span> ポイント</span>
+      <p>
+        <strong>断る時こそ丁寧にするのが大事だと思ってます。</strong><br>
+        「今こういう状況なので、代わりにこの方を紹介させてください」って<br>
+        できる限りのことをさせてもらうんですよね。<br><br>
+        私もお断りしたことがあるんですけど、丁寧に対応させてもらったら<br>
+        逆に「また空いたらお願いします」って言っていただけたんですよ。<br>
+        <strong>結局、仕事って全部「縁」でできてるんですよね。</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━ 落とし穴⑤ 仕事選び ━━━━━━━━━━━━━━━ -->
+  <div class="section">
+    <span class="section-label" style="color:var(--pink); background:var(--pink-bg);">💡 落とし穴 ⑤</span>
+    <h2>実はここが一番大事 —<br>「何を選ぶか」で全部決まる</h2>
+
+    <div class="trick-card">
+      <p style="font-size:14px; line-height:2;">
+        ここまで「知ってたら避けられること」をお伝えしてきたんですけど、<br>
+        正直に言うと<strong>在宅副業で一番の落とし穴って「仕事選び」なんですよね。</strong><br><br>
+        私も最初データ入力を選んで、2ヶ月で月1万円でした。<br>
+        でもその後にインスタの運用代行と出会えたからこそ<br>
+        稼げるようになったっていうのがあって、<br>
+        結局<strong>自分に合ったものを選ぶっていうのが一番大事</strong>なんですよね。<br><br>
+        でもこれって万人に言えるものってなくて、<br>
+        正解は一つもないんです。<br><br>
+        なので動画ではいろんなお仕事を紹介してるので、ぜひ見てみてくださいね。
+      </p>
+    </div>
+
+    <a href="https://youtu.be/ssqwwJsowoU" target="_blank" class="video-card">
+      <div class="video-card-thumb">
+        <img src="https://img.youtube.com/vi/ssqwwJsowoU/maxresdefault.jpg" alt="在宅副業5選">
+        <div class="video-card-play"></div>
+      </div>
+      <div class="video-card-info">
+        <p class="video-card-label">▶ 関連動画</p>
+        <p class="video-card-title">【在宅ワーク】スキルなしでも毎月10万円家計にプラス。在宅副業5選</p>
+      </div>
+    </a>
+
+    <div class="letter" style="border-color: var(--pink); margin-top:24px;">
+      <p class="letter-name">みさをより</p>
+      <p>
+        いろいろ調べてみて「これかな」っていうのが見つかったら、<br>
+        もうそれで一回やってみるのが一番いいと思います。<br><br>
+        どんなお仕事を試したとしても、<br>
+        それは絶対に在宅ワークにおける経験にはなるので、<br>
+        無駄になるってことは正直ないです。<br><br>
+        ただ、初めから自分に合っているものを見つけてやってみたい<br>
+        っていう方がいらっしゃるんでしたら、<br>
+        今限定で<strong>在宅ワークの無料相談会</strong>をやってますので、<br>
+        ぜひ活用してもらえたらいいなと思います。<br><br>
+        最後まで読んでくださって、ほんまにありがとうございます。<br><br>
+        いつも動画を見に来てくれてる皆さんに<br>
+        少しでも役に立つものを届けたいなと思って作りました。<br><br>
+        在宅ワークって、ちゃんとやれば<br>
+        ほんまにいい働き方やと思ってるので。<br><br>
+        一緒に頑張りましょうね。<br><br>
+        おおきに。
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function updateProgress() {
+  const checks = document.querySelectorAll('.checklist-section input[type="checkbox"]');
+  const total = checks.length;
+  let checked = 0;
+  checks.forEach(c => { if (c.checked) checked++; });
+  const pct = Math.round((checked / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = checked + ' / ' + total;
+}
+</script>
+
+</body>
+</html>
