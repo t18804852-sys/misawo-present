@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みさを 1日密着Vlog 構成設計書</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{padding:24px 32px 80px;max-width:1100px;margin:0 auto}
+
+h1{font-size:24px;font-weight:700;margin-bottom:8px}
+.subtitle{color:#a5b4c4;font-size:14px;margin-bottom:24px}
+
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.badge{background:#161b22;border:1px solid #21262d;border-radius:20px;padding:6px 14px;font-size:12px;color:#a5b4c4}
+.badge strong{color:#58a6ff}
+
+h2{font-size:18px;font-weight:700;color:#fff;margin:40px 0 14px;padding-bottom:10px;border-bottom:2px solid #21262d}
+h3{font-size:15px;font-weight:700;color:#fff;margin:24px 0 10px}
+
+/* 全体構成表 */
+.overview{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;background:#161b22;border-radius:8px;overflow:hidden}
+.overview th{background:#21262d;padding:10px 12px;text-align:left;font-size:12px;color:#a5b4c4;font-weight:700}
+.overview td{padding:10px 12px;border-top:1px solid #21262d}
+.overview .num{color:#7d8590;font-weight:700;width:40px}
+.overview .time{color:#58a6ff;font-variant-numeric:tabular-nums;width:100px;font-weight:700}
+.overview .star{color:#f85149;font-weight:900}
+.density-h{color:#f85149;font-weight:700}
+.density-m{color:#d29922;font-weight:700}
+.density-l{color:#3fb950;font-weight:700}
+
+/* ブロックカード */
+.block{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin:16px 0}
+.block-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.block-num{background:#58a6ff;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0}
+.block-num.peak{background:#f85149}
+.block-num.soft{background:#3fb950}
+.block-time{color:#58a6ff;font-weight:700;font-variant-numeric:tabular-nums}
+.block-name{font-size:16px;font-weight:700;color:#fff;flex:1}
+.block-density{font-size:11px;padding:3px 10px;border-radius:10px;font-weight:700}
+.block-density.h{background:#2e0d0d;color:#f85149}
+.block-density.m{background:#2e1f0d;color:#d29922}
+.block-density.l{background:#0d2e1a;color:#3fb950}
+
+.block-purpose{background:#0d1117;border-left:3px solid #58a6ff;padding:10px 14px;margin:10px 0;border-radius:0 6px 6px 0}
+.block-purpose .label{color:#58a6ff;font-size:11px;text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.block-purpose p{font-size:13.5px}
+
+.block-elements{list-style:none;padding:0;margin:10px 0}
+.block-elements li{padding:6px 0;font-size:13.5px;display:flex;align-items:flex-start;gap:8px}
+.block-elements li::before{content:'✅';flex-shrink:0}
+.block-elements li.warn::before{content:'⚠️'}
+.block-elements li.star::before{content:'★';color:#f85149;font-weight:900}
+
+/* 密度波ビジュアル */
+.wave-container{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin:16px 0}
+.wave-bars{display:flex;align-items:flex-end;gap:6px;height:180px;padding:10px 0}
+.wave-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.wave-fill{width:100%;border-radius:4px 4px 0 0;transition:height .3s}
+.wave-fill.h{background:linear-gradient(180deg,#f85149,#a42d2d)}
+.wave-fill.m{background:linear-gradient(180deg,#d29922,#8a6314)}
+.wave-fill.l{background:linear-gradient(180deg,#3fb950,#26612a)}
+.wave-label{font-size:11px;color:#7d8590;text-align:center}
+.wave-label .block-name-wave{display:block;font-size:10px;color:#a5b4c4;margin-top:2px}
+
+/* 要ヒアリング */
+.hearing{background:#2e1f0d;border:1px solid #d29922;border-radius:10px;padding:18px;margin:14px 0}
+.hearing h3{color:#d29922;margin-top:0}
+.hearing-list{list-style:none;padding:0}
+.hearing-list li{padding:8px 0;font-size:13.5px;border-bottom:1px solid #3d2910}
+.hearing-list li:last-child{border:none}
+.hearing-list li strong{color:#d29922}
+
+/* 指摘 */
+.concern{background:#1f0d0d;border:1px solid #f85149;border-radius:10px;padding:18px;margin:14px 0}
+.concern h3{color:#f85149;margin-top:0}
+.concern-item{margin:12px 0;padding-left:16px;border-left:2px solid #f85149}
+.concern-item h4{font-size:14px;color:#fff;margin-bottom:6px}
+.concern-item p{font-size:13px;color:#e6edf3}
+
+/* 承認待ち */
+.approval{background:linear-gradient(135deg,#1a0d2e,#0d0d1f);border:2px solid #d2a8ff;border-radius:10px;padding:20px;margin:14px 0}
+.approval h3{color:#d2a8ff;margin-top:0}
+.approval-list{counter-reset:approval;list-style:none;padding:0}
+.approval-list li{counter-increment:approval;padding:10px 0 10px 40px;position:relative;font-size:14px;border-bottom:1px solid #2e1a4a}
+.approval-list li:last-child{border:none}
+.approval-list li::before{content:counter(approval);position:absolute;left:0;top:10px;width:28px;height:28px;background:#d2a8ff;color:#0d1117;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px}
+
+/* Manato原則 */
+.manato{background:#0d1a2e;border:1px solid #58a6ff;border-radius:10px;padding:18px;margin:14px 0}
+.manato h3{color:#58a6ff;margin-top:0}
+.manato ul{list-style:none;padding:0}
+.manato li{padding:6px 0;font-size:13.5px;padding-left:20px;position:relative}
+.manato li::before{content:'▸';position:absolute;left:0;color:#58a6ff;font-weight:700}
+.manato li strong{color:#fff}
+
+.tag-peak{background:#2e0d0d;color:#f85149;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
+.tag-must{background:#2e0d2e;color:#d2a8ff;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  body{padding:16px 12px 60px;font-size:14px}
+  h1{font-size:20px}
+  h2{font-size:16px;margin:32px 0 12px}
+  h3{font-size:14px}
+  .subtitle{font-size:12px}
+  .badge{font-size:11px;padding:4px 10px}
+
+  /* 全体構成表: 横スクロール可能に */
+  .overview{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;font-size:11px}
+  .overview th,.overview td{padding:8px 10px}
+  .overview td:last-child{white-space:normal;min-width:240px}
+
+  /* 密度波: 小さめに */
+  .wave-container{padding:14px 8px}
+  .wave-bars{height:140px;gap:3px;padding:6px 0}
+  .wave-label{font-size:9px}
+  .wave-label .block-name-wave{font-size:8px;margin-top:1px}
+
+  /* ブロックカード */
+  .block{padding:14px;margin:12px 0}
+  .block-header{gap:8px}
+  .block-num{width:30px;height:30px;font-size:12px}
+  .block-name{font-size:14px}
+  .block-time{font-size:12px}
+  .block-density{font-size:10px;padding:2px 8px}
+  .block-purpose{padding:8px 12px}
+  .block-purpose p{font-size:12.5px}
+  .block-elements li{font-size:12.5px;padding:4px 0}
+
+  /* ヒアリング・懸念・承認 */
+  .hearing,.concern,.approval,.manato{padding:14px}
+  .manato li,.hearing-list li{font-size:12.5px}
+  .approval-list li{padding:10px 0 10px 36px;font-size:13px}
+  .approval-list li::before{width:24px;height:24px;font-size:12px}
+  .concern-item h4{font-size:13px}
+  .concern-item p{font-size:12.5px}
+}
+</style>
+</head>
+<body>
+
+<h1>みさを 1日密着Vlog — 構成設計書</h1>
+<p class="subtitle">参考: はるな動画 (view/sub 4.23x) / Manatoメソッド準拠 / 2026-04-15 作成 / Phase 2: 大枠構成のみ・台本化は次段階</p>
+
+<div class="badge-row">
+<span class="badge">尺目安: <strong>10分</strong></span>
+<span class="badge">全 <strong>12 ブロック</strong></span>
+<span class="badge">実演 <strong>3箇所</strong></span>
+<span class="badge">情報密度の波: <strong>Manato推奨</strong>準拠</span>
+<span class="badge">要ヒアリング: <strong>2項目のみ</strong></span>
+</div>
+
+<!-- Manato原則 -->
+<div class="manato">
+<h3>📚 ManatoBot から引いた台本原則</h3>
+<ul>
+<li><strong>冒頭30秒で40-50%離脱防止</strong> — 2つの見どころ提示で「2つ目気になる」を作る</li>
+<li><strong>結論を最初に言わない</strong> — ただし全体像と終わりまでの道筋は示す</li>
+<li><strong>冒頭10秒で画像付きLINE誘導</strong>（控えめに）</li>
+<li><strong>中間CTA 8-12分</strong> — 「自分には実践が難しい」と感じる場所に特典を繋ぐ</li>
+<li><strong>情報密度の波</strong> — 高密度と低密度を繰り返して集中を維持</li>
+<li><strong>Vlog × ノウハウ</strong> — 映像はVlog・セリフは仕事に集中。日常動作はテロップ/映像のみ</li>
+<li><strong>感情価値が長期差別化</strong> — 情報はコモディティ化する。人格でファン化</li>
+</ul>
+</div>
+
+<!-- 全体構成表 -->
+<h2>全体構成表（12ブロック）</h2>
+<table class="overview">
+<tr><th>#</th><th>時間</th><th>ブロック名</th><th>密度</th><th>満たす目的</th></tr>
+<tr><td class="num">0</td><td class="time">0:00-0:30</td><td>冒頭フック</td><td><span class="density-h">高</span></td><td>30秒離脱防止・見どころ2つ提示・LINE誘導控えめ</td></tr>
+<tr><td class="num">1</td><td class="time">0:30-1:30</td><td>2エピソード逆境+動機</td><td><span class="density-m">中</span></td><td>信頼構築・「同じ立場だった」</td></tr>
+<tr><td class="num">2</td><td class="time">1:30-2:15</td><td>自己紹介(仕事)+ルームツアー</td><td><span class="density-l">低</span></td><td>全体像提示・物理空間の透明性</td></tr>
+<tr><td class="num">3</td><td class="time">2:15-2:45</td><td>初心者時代回想</td><td><span class="density-m">中</span></td><td>再現性の土台</td></tr>
+<tr><td class="num">4</td><td class="time">2:45-4:15</td><td><span class="star">★</span>実演① SNS運用代行(本体)</td><td><span class="density-h">高</span></td><td>職業の具体①・信頼Lock</td></tr>
+<tr><td class="num">5</td><td class="time">4:15-5:00</td><td><span class="star">★</span>実演② ショート動画作成</td><td><span class="density-h">高</span></td><td>職業の具体②・映像メリハリ</td></tr>
+<tr><td class="num">6</td><td class="time">5:00-5:45</td><td>昼休み(人柄ブロック)</td><td><span class="density-l">低</span></td><td>警戒解除・親近感</td></tr>
+<tr><td class="num">7</td><td class="time">5:45-6:45</td><td><span class="star">★</span>実演③ 編集ディレクション</td><td><span class="density-h">高</span></td><td>職業の具体③・「添削側」の立ち位置</td></tr>
+<tr><td class="num">8</td><td class="time">6:45-7:30</td><td>月収公開+稼働時間</td><td><span class="density-h">高</span></td><td>証明完結・数字で信頼完成</td></tr>
+<tr><td class="num">9</td><td class="time">7:30-7:45</td><td>走るシーン(保育園迎え)</td><td><span class="density-l">低</span></td><td>ハラハラ感・子供2度目登場</td></tr>
+<tr><td class="num">10</td><td class="time">7:45-8:45</td><td>夜の仕事+中間CTA</td><td><span class="density-m">中</span></td><td>Manato推奨8-12分CTA位置</td></tr>
+<tr><td class="num">11</td><td class="time">8:45-9:15</td><td>みさを流の仕事観</td><td><span class="density-l">低</span></td><td>感情価値でファン化</td></tr>
+<tr><td class="num">12</td><td class="time">9:15-10:00</td><td>CTA+締め</td><td><span class="density-m">中</span></td><td>行動促し・LINE/相談会</td></tr>
+</table>
+
+<!-- 密度波ビジュアル -->
+<h2>情報密度の波（視聴維持率設計）</h2>
+<div class="wave-container">
+<div class="wave-bars">
+<div class="wave-bar"><div class="wave-fill h" style="height:90%"></div><div class="wave-label">B0<span class="block-name-wave">冒頭</span></div></div>
+<div class="wave-bar"><div class="wave-fill m" style="height:55%"></div><div class="wave-label">B1<span class="block-name-wave">逆境</span></div></div>
+<div class="wave-bar"><div class="wave-fill l" style="height:25%"></div><div class="wave-label">B2<span class="block-name-wave">ルーム</span></div></div>
+<div class="wave-bar"><div class="wave-fill m" style="height:50%"></div><div class="wave-label">B3<span class="block-name-wave">回想</span></div></div>
+<div class="wave-bar"><div class="wave-fill h" style="height:95%"></div><div class="wave-label">B4<span class="block-name-wave">SNS</span></div></div>
+<div class="wave-bar"><div class="wave-fill h" style="height:85%"></div><div class="wave-label">B5<span class="block-name-wave">ショート</span></div></div>
+<div class="wave-bar"><div class="wave-fill l" style="height:20%"></div><div class="wave-label">B6<span class="block-name-wave">昼休み</span></div></div>
+<div class="wave-bar"><div class="wave-fill h" style="height:90%"></div><div class="wave-label">B7<span class="block-name-wave">編集D</span></div></div>
+<div class="wave-bar"><div class="wave-fill h" style="height:100%"></div><div class="wave-label">B8<span class="block-name-wave">月収公開</span></div></div>
+<div class="wave-bar"><div class="wave-fill l" style="height:15%"></div><div class="wave-label">B9<span class="block-name-wave">走る</span></div></div>
+<div class="wave-bar"><div class="wave-fill m" style="height:50%"></div><div class="wave-label">B10<span class="block-name-wave">夜+CTA</span></div></div>
+<div class="wave-bar"><div class="wave-fill l" style="height:30%"></div><div class="wave-label">B11<span class="block-name-wave">仕事観</span></div></div>
+<div class="wave-bar"><div class="wave-fill m" style="height:45%"></div><div class="wave-label">B12<span class="block-name-wave">締め</span></div></div>
+</div>
+<p style="color:#a5b4c4;font-size:12px;margin-top:14px;text-align:center">高密度(赤)=実演・数字公開／中密度(黄)=回想・ストーリー／低密度(緑)=ルームツアー・昼休み・走る・仕事観</p>
+</div>
+
+<!-- 各ブロック詳細 -->
+<h2>各ブロック詳細（目的と要素）</h2>
+
+<div class="block">
+<div class="block-header"><span class="block-num">0</span><span class="block-time">0:00-0:30</span><span class="block-name">冒頭フック</span><span class="block-density h">高密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>30秒で離脱させない（Manato推奨の最重要区間）</p></div>
+<ul class="block-elements">
+<li class="star"><strong>小声で挨拶</strong>「おはよう、娘まだ寝てるんで小声で…」<span class="tag-must">冒頭娘マスト</span></li>
+<li><strong>2つの見どころ提示</strong>: ①月30万の内訳全公開 ②初心者だった自分が見たかった1日ルーティン</li>
+<li>複数ペルソナに刺す: 「時給1,000円のパート」「スキル0で不安」「家事育児で時間取れない」</li>
+<li><strong>控えめLINE誘導</strong>（画面右上に静かに）<span class="tag-must">Manato推奨</span></li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num">1</span><span class="block-time">0:30-1:30</span><span class="block-name">2エピソード逆境+動機</span><span class="block-density m">中密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>信頼構築。「この人は私と同じ立場だった」を発火</p></div>
+<ul class="block-elements">
+<li class="star"><strong>外部起因</strong>: 夜逃げ離婚 → シンママ時給1,000円パート月12万</li>
+<li class="star"><strong>内部起因（確定3素材）</strong>:<br>・将来のお金考えて眠れない夜がしょっちゅう<br>・このまま続くんかなって思った時が1番しんどかった<br>・娘の寝顔見ながら「やるしかない」、毎回泣きそうやった</li>
+<li>補強素材（使うかは尺次第）: 可哀想な目で見られる辛さ / 靴買えない / ママ友旦那話</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num">2</span><span class="block-time">1:30-2:15</span><span class="block-name">自己紹介(仕事)+ルームツアー</span><span class="block-density l">低密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>全体像を提示。視聴者が「何の動画か」を掴む</p></div>
+<ul class="block-elements">
+<li class="star"><strong>3職種を宣言</strong>: ①SNS運用代行(本体) ②ショート動画作成 ③編集ディレクション</li>
+<li>月収レンジ匂わせ（数字の断定は後）</li>
+<li><strong>作業部屋ツアー</strong>（1分弱）: PC周り・Notion画面全体感・こだわりの小物</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num">3</span><span class="block-time">2:15-2:45</span><span class="block-name">初心者時代回想</span><span class="block-density m">中密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>「スキル0から始めた」を提示。再現性の土台を敷く</p></div>
+<ul class="block-elements">
+<li>データ入力・文字起こし挫折（月1万）</li>
+<li>「そのやり方じゃ月30万なんか絶対いかへん」先輩の言葉</li>
+<li>SNS運用代行への転換「インスタ運用代行？なにそれ？状態」</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num peak">4</span><span class="block-time">2:45-4:15</span><span class="block-name">★実演① SNS運用代行(本体)</span><span class="block-density h">高密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>職業の具体①。情報密度の山を作る</p></div>
+<ul class="block-elements">
+<li>Notion管理画面</li>
+<li>Slackの朝チャット返信（クライアント名黒塗り）</li>
+<li>分析レポート確認</li>
+<li class="star"><strong>単価帯開示</strong>: 飲食店のインスタ運用1社月5-15万が相場</li>
+<li>「私の場合3-4社やってて」</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num peak">5</span><span class="block-time">4:15-5:00</span><span class="block-name">★実演② ショート動画作成</span><span class="block-density h">高密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>職業の具体②。映像切り替えで飽き防止</p></div>
+<ul class="block-elements">
+<li>Canvaでショート動画を実際に作成</li>
+<li>カット → テロップ → 画像 → BGM</li>
+<li><strong>時給換算の数字開示</strong>: 「1本○分で○円、時給換算○○円」</li>
+<li><strong>映像的には一番メリハリ</strong>が作れるブロック</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num soft">6</span><span class="block-time">5:00-5:45</span><span class="block-name">昼休み(人柄ブロック)</span><span class="block-density l">低密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>情報密度を落として警戒解除・親近感発火</p></div>
+<ul class="block-elements">
+<li class="warn"><strong>[要ヒアリング①]</strong>: お気に入りの食べ物（具体1つ）</li>
+<li class="warn"><strong>[要ヒアリング②]</strong>: 最近ハマってるもの（具体1つ）</li>
+<li>娘の話（エピソード1つ）</li>
+<li><strong>食べながら話す構造</strong>（みずき式）</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num peak">7</span><span class="block-time">5:45-6:45</span><span class="block-name">★実演③ 編集ディレクション</span><span class="block-density h">高密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>職業の具体③。「添削する側」の立ち位置を見せる</p></div>
+<ul class="block-elements">
+<li>他の編集者さんの動画チェック画面</li>
+<li><strong>画面録画での修正指示</strong>（はるな型そのまま）</li>
+<li>「次回から単価上げます」の判断</li>
+<li>ディレクター単価「1ch月3-10万」</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num">8</span><span class="block-time">6:45-7:30</span><span class="block-name">月収公開+稼働時間</span><span class="block-density h">高密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>証明完結。ここで数字の信頼がLockする</p></div>
+<ul class="block-elements">
+<li class="star"><strong>月30-40万公開</strong></li>
+<li><strong>3職種の内訳</strong>: SNS運用代行7割+ショート動画2割+編集ディレクション1割（実態次第）</li>
+<li>稼働時間: 日中6時間+夜（子寝かしつけ後）</li>
+<li><strong>逆算パターン</strong>: 「1社だけでも月5-15万。まず1社取るのが目標」</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num soft">9</span><span class="block-time">7:30-7:45</span><span class="block-name">走るシーン(保育園迎え)</span><span class="block-density l">低密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>ハラハラ感+リアル。密度を一気に落とす</p></div>
+<ul class="block-elements">
+<li>「やばい、迎え間に合わない！」</li>
+<li>走る（はるな型そのまま）</li>
+<li>娘と合流（子供2回目登場。冒頭と対になる）</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num">10</span><span class="block-time">7:45-8:45</span><span class="block-name">夜の仕事+中間CTA</span><span class="block-density m">中密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>Manato推奨の<strong>中間CTA位置（8-12分）</strong>。LINEで特典を繋ぐ</p></div>
+<ul class="block-elements">
+<li>寝かしつけ後の作業</li>
+<li>視聴者LINE相談の返信</li>
+<li>勉強会案内の話</li>
+<li class="star"><strong>控えめLINE誘導</strong>: 「在宅ワーク相談会の案内してます」</li>
+<li>「手前味噌ですが」の正直さで信頼残高保つ</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num soft">11</span><span class="block-time">8:45-9:15</span><span class="block-name">みさを流の仕事観</span><span class="block-density l">低密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>感情価値＝人格でファン化。Manato推奨の長期差別化</p></div>
+<ul class="block-elements">
+<li>「夜逃げ後の自分に届けたい」思い</li>
+<li>「大丈夫、ちゃんと方法あるよ」メッセージ</li>
+<li>同じ立場の人への呼びかけ</li>
+</ul>
+</div>
+
+<div class="block">
+<div class="block-header"><span class="block-num">12</span><span class="block-time">9:15-10:00</span><span class="block-name">CTA+締め</span><span class="block-density m">中密度</span></div>
+<div class="block-purpose"><p class="label">目的</p><p>行動促し</p></div>
+<ul class="block-elements">
+<li>LINE登録誘導（本格）</li>
+<li>相談会案内</li>
+<li>コメント欄でも質問OK</li>
+<li>「おおきに」締め</li>
+</ul>
+</div>
+
+<!-- 要ヒアリング -->
+<h2>要ヒアリング項目（最小・2つ）</h2>
+<div class="hearing">
+<h3>⚠ 構成決定に必要な残り情報</h3>
+<ul class="hearing-list">
+<li><strong>1. お気に入りの食べ物</strong>（昼休み用に具体1つ）／緊急度: 構成内では仮置き可。台本化前に確定</li>
+<li><strong>2. 最近ハマってるもの</strong>（推し/音楽/YouTube等1つ）／緊急度: 同上</li>
+</ul>
+<p style="color:#a5b4c4;font-size:12px;margin-top:12px">※ 内部起因エピソードは既存スクリプトから確定済（10素材中3採用）。契約書の守秘義務もLv2に絞れば実質不要。</p>
+</div>
+
+<!-- 懸念・指摘 -->
+<h2>師匠モードでの指摘</h2>
+<div class="concern">
+<h3>⚠ 構成上の懸念（先に潰すべき3つ）</h3>
+<div class="concern-item">
+<h4>1. 実演が3つあって尺が足りるか</h4>
+<p>B4(SNS本体) + B5(ショート) + B7(編集D) で実演3連。各90秒でも4.5分。全体10分中45%が実演。<br>→ <strong>各実演は「1アクション1つだけ」に絞る</strong>。SNS本体なら「Slackチェック」だけ、ショートなら「1シーン作る」だけ。全部見せようとすると崩れる。</p>
+</div>
+<div class="concern-item">
+<h4>2. B9で子供が映る問題</h4>
+<p>プライバシー配慮。顔出しOKか本人確認必要。NGなら<strong>後ろ姿・手だけ・声だけ</strong>に変える。</p>
+</div>
+<div class="concern-item">
+<h4>3. 冒頭の「娘小声」+ B9の「娘迎え」の2度登場</h4>
+<p>はるな動画もこの構造（朝+迎え）。効いてるので<strong>バランスOK</strong>。</p>
+</div>
+</div>
+
+<!-- 承認待ち -->
+<h2>承認待ち</h2>
+<div class="approval">
+<h3>🎯 Taigaに確認したいこと 3つ</h3>
+<ol class="approval-list">
+<li>この構成12ブロックでOK？ 追加・削除ある？</li>
+<li>B5 ショート動画作成の中身: Canva作業でいい？それとも実運用のTikTok/Instagram投稿作成？</li>
+<li>B8の3職種内訳比率「7割+2割+1割」は仮。実態と違うなら調整必要</li>
+</ol>
+<p style="color:#a5b4c4;font-size:13px;margin-top:14px">OKなら台本化（Phase 3）に進む。</p>
+</div>
+
+</body>
+</html>
